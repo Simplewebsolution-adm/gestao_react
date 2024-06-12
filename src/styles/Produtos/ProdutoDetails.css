@@ -1,0 +1,12 @@
+.produto-details .row .col-sm-2 {
+    text-align: right !important;
+}
+
+.produto-details .row .col-sm-10 {
+    text-align: left !important;
+}
+
+.btn-spacing {
+    margin-right: 5px; 
+}
+  

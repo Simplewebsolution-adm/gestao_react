@@ -1,0 +1,26 @@
+.text-right {
+    text-align: right !important;
+    font-weight: bold;
+}
+
+.custom-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+}
+
+.custom-button i {
+    margin: 0;
+    vertical-align: sub;
+}
+
+.linha {
+    margin-bottom: 10px;
+}
+
+.btn-spacing {
+    margin-right: 5px; 
+}
