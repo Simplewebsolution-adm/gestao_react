@@ -5,7 +5,7 @@ import { formatDate } from './../../utils/formatData';
 import vendaService from './../../services/vendaService';
 import clienteService from './../../services/clienteService';
 import produtoService from './../../services/produtoService';
-import styles from './css/VendaDetails.module.css'; // Importe o módulo CSS
+import styles from './css/VendaDetails.module.css'; 
 
 const VendaDetails = () => {
   const { id } = useParams();
