@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import clienteService from '../../services/clienteService'; 
 
 const ClienteList = () => {
+  const [clientesList, setClientesList] = useState([]);
+
   const clientes = clienteService.getListaClientes(); 
+
+  const handleDelete = (id) => {
+    clienteService.deletarCliente(id);
+    setClientesList(clientesList.filter(cliente => cliente.id !== id));
+  };
 
   return (
     <div>
@@ -37,9 +44,9 @@ const ClienteList = () => {
                 <Link to={`/clientes/details/${cliente.id}`} className="btn btn-primary btn-sm btn-spacing" title="Detalhes">
                   <i className="fas fa-eye"></i>
                 </Link>
-                <Link className="btn btn-danger btn-sm" title="Excluir">
+                <button onClick={() => handleDelete(cliente.id)} className="btn btn-danger btn-sm" title="Excluir">
                   <i className="fas fa-trash-alt"></i>
-                </Link>
+                </button>
               </td>
             </tr>
           ))}

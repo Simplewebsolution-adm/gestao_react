@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { formatCurrency } from './../../utils/formatCurrency';
 import compraService from './../../services/compraService';
-import './../../styles/Compras/CompraDetails.css';
+import styles from './css/CompraDetails.module.css'; // Importe o módulo CSS
 
 const CompraDetails = () => {
   const { id } = useParams();
@@ -19,33 +19,33 @@ const CompraDetails = () => {
   }
 
   return (
-    <div className="compra-details">
+    <div className={styles.compraDetails}>
       <h4>Detalhes da Compra</h4>
       <hr />
-      <dl className="row">
-        <dt className="col-sm-2">Fornecedor</dt>
-        <dd className="col-sm-10">{compra.fornecedor}</dd>
+      <dl className={styles.row}>
+        <dt className={styles.colSm2}>Fornecedor</dt>
+        <dd className={styles.colSm10}>{compra.fornecedor}</dd>
         
-        <dt className="col-sm-2">Produto</dt>
-        <dd className="col-sm-10">{compra.produto}</dd>
+        <dt className={styles.colSm2}>Produto</dt>
+        <dd className={styles.colSm10}>{compra.produto}</dd>
 
-        <dt className="col-sm-2">Data da Compra</dt>
-        <dd className="col-sm-10">{compra.dataCompra}</dd>
+        <dt className={styles.colSm2}>Data da Compra</dt>
+        <dd className={styles.colSm10}>{compra.dataCompra}</dd>
 
-        <dt className="col-sm-2">Forma de Pagamento</dt>
-        <dd className="col-sm-10">{compra.formaPagamento}</dd>
+        <dt className={styles.colSm2}>Forma de Pagamento</dt>
+        <dd className={styles.colSm10}>{compra.formaPagamento}</dd>
 
-        <dt className="col-sm-2">Valor Unitário</dt>
-        <dd className="col-sm-10">{formatCurrency(compra.valorUnitario)}</dd>
+        <dt className={styles.colSm2}>Valor Unitário</dt>
+        <dd className={styles.colSm10}>{formatCurrency(compra.valorUnitario)}</dd>
 
-        <dt className="col-sm-2">Quantidade</dt>
-        <dd className="col-sm-10">{compra.quantidade}</dd>
+        <dt className={styles.colSm2}>Quantidade</dt>
+        <dd className={styles.colSm10}>{compra.quantidade}</dd>
 
-        <dt className="col-sm-2">Valor Total</dt>
-        <dd className="col-sm-10">{formatCurrency(compra.valorCompra)}</dd>
+        <dt className={styles.colSm2}>Valor Total</dt>
+        <dd className={styles.colSm10}>{formatCurrency(compra.valorCompra)}</dd>
       </dl>
       <div>
-        <Link to={`/compras/${compra.id}/editar`} className="btn btn-warning btn-md btn-spacing" title="Alterar">
+        <Link to={`/compras/${compra.id}/editar`} className={`btn btn-warning btn-md ${styles.btnSpacing}`} title="Alterar">
           <i className="fas fa-edit"></i>
         </Link>
         

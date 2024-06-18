@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import clienteService from './../../services/clienteService'; 
+import clienteService from './../../services/clienteService';
 import InputMask from 'react-input-mask';
-import './../../styles/Clientes/ClienteForm.css';
+import styles from './css/ClienteForm.module.css'; // Importando o CSS Module
 
 const ClienteForm = () => {
   const { id } = useParams();
@@ -16,7 +16,6 @@ const ClienteForm = () => {
   });
 
   useEffect(() => {
-    // Usando o clienteService para obter os dados do cliente
     const clienteId = parseInt(id);
     const clienteEncontrado = clienteService.getClienteById(clienteId);
 
@@ -40,18 +39,17 @@ const ClienteForm = () => {
   };
 
   return (
-    <div>
+    <div className={styles.clienteForm}>
       <h4>{id ? 'Alterar Cliente' : 'Novo Cliente'}</h4>
-      <hr />
-      <div className="row">
+      <div className={styles.row}>
         <div className="col-md-10">
           <form onSubmit={handleSubmit} className="my-14">
-            <div className="form-group row linha">
-              <label htmlFor="nome" className="col-sm-3 col-form-label text-right">Nome</label>
+            <div className={`form-group ${styles.row} ${styles.linha}`}>
+              <label htmlFor="nome" className={`col-sm-3 col-form-label ${styles.textRight}`}>Nome</label>
               <div className="col-sm-9">
                 <input
                   type="text"
-                  className="form-control"
+                  className={`form-control ${styles.input}`}
                   id="nome" 
                   name="nome"
                   value={cliente.nome}
@@ -59,12 +57,12 @@ const ClienteForm = () => {
                 />
               </div>
             </div>
-            <div className="form-group row linha">
-              <label htmlFor="cpf" className="col-sm-3 col-form-label text-right">CPF</label>
+            <div className={`form-group ${styles.row} ${styles.linha}`}>
+              <label htmlFor="cpf" className={`col-sm-3 col-form-label ${styles.textRight}`}>CPF</label>
               <div className="col-sm-9">
                 <InputMask
                   mask="999.999.999-99"
-                  className="form-control"
+                  className={`form-control ${styles.input}`}
                   id="cpf"
                   name="cpf"
                   value={cliente.cpf}
@@ -72,12 +70,12 @@ const ClienteForm = () => {
                 />
               </div>
             </div>
-            <div className="form-group row linha">
-              <label htmlFor="endereco" className="col-sm-3 col-form-label text-right">Endereço</label>
+            <div className={`form-group ${styles.row} ${styles.linha}`}>
+              <label htmlFor="endereco" className={`col-sm-3 col-form-label ${styles.textRight}`}>Endereço</label>
               <div className="col-sm-9">
                 <input
                   type="text"
-                  className="form-control"
+                  className={`form-control ${styles.input}`}
                   id="endereco"
                   name="endereco"
                   value={cliente.endereco}
@@ -85,12 +83,12 @@ const ClienteForm = () => {
                 />
               </div>
             </div>
-            <div className="form-group row linha">
-              <label htmlFor="telefone" className="col-sm-3 col-form-label text-right">Telefone</label>
+            <div className={`form-group ${styles.row} ${styles.linha}`}>
+              <label htmlFor="telefone" className={`col-sm-3 col-form-label ${styles.textRight}`}>Telefone</label>
               <div className="col-sm-9">
                 <InputMask
                   mask="(99) 99999-9999"
-                  className="form-control"
+                  className={`form-control ${styles.input}`}
                   id="telefone"
                   name="telefone"
                   value={cliente.telefone}
@@ -98,12 +96,12 @@ const ClienteForm = () => {
                 />
               </div>
             </div>
-            <div className="form-group row linha">
-              <label htmlFor="dataNasc" className="col-sm-3 col-form-label text-right">Data de Nascimento</label>
+            <div className={`form-group ${styles.row} ${styles.linha}`}>
+              <label htmlFor="dataNasc" className={`col-sm-3 col-form-label ${styles.textRight}`}>Data de Nascimento</label>
               <div className="col-sm-9">
                 <InputMask
                   mask="99/99/9999"
-                  className="form-control"
+                  className={`form-control ${styles.input}`}
                   id="dataNasc"
                   name="dataNasc"
                   value={cliente.dataNasc}
@@ -111,12 +109,12 @@ const ClienteForm = () => {
                 />
               </div>
             </div>
-            <div className="form-group row linha">
-              <label htmlFor="email" className="col-sm-3 col-form-label text-right">Email</label>
+            <div className={`form-group ${styles.row} ${styles.linha}`}>
+              <label htmlFor="email" className={`col-sm-3 col-form-label ${styles.textRight}`}>Email</label>
               <div className="col-sm-9">
                 <input
                   type="email"
-                  className="form-control"
+                  className={`form-control ${styles.input}`}
                   id="email"
                   name="email"
                   value={cliente.email}
@@ -124,10 +122,10 @@ const ClienteForm = () => {
                 />
               </div>
             </div>
-            <div className="form-group row linha">
-              <div className="col-sm-9 offset-sm-3">
-                <button type="submit" className="btn btn-primary float-end">Salvar</button>
-                <Link to="/clientes" className="btn btn-primary btn-md float-end btn-spacing" title="Voltar">
+            <div className={`form-group ${styles.row} ${styles.linha}`}>
+              <div className={`${styles.colSm9} offset-sm-3`}>
+                <button type="submit" className={`btn btn-primary ${styles.floatEnd}`}>Salvar</button>
+                <Link to="/produtos" className={`btn btn-primary btn-md ${styles.floatEnd} ${styles.btnSpacing}`} title="Voltar">
                   <i className="fas fa-arrow-left"></i>
                 </Link>
               </div>
@@ -135,7 +133,6 @@ const ClienteForm = () => {
           </form>
         </div>
       </div>
-      
     </div>
   );
 };

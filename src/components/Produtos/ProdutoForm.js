@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom'; 
 import { formatCurrency } from './../../utils/formatCurrency'; 
 import produtoService from './../../services/produtoService';
-import './../../styles/Produtos/ProdutoForm.css';
+import styles from './css/ProdutoForm.module.css'; // Importe o módulo CSS
 
 const ProdutoForm = () => {
   const { id } = useParams();
@@ -59,14 +59,14 @@ const ProdutoForm = () => {
   };
 
   return (
-    <div>
+    <div className={styles.produtoForm}>
       <h4>{id ? 'Alterar Produto' : 'Novo Produto'}</h4>
-      <div className="row">
+      <div className={styles.row}>
         <div className="col-md-10">
           <form onSubmit={handleSubmit} className="my-14">
-            <div className="form-group row linha">
-              <label className="col-sm-3 col-form-label text-right">Descrição</label>
-              <div className="col-sm-9">
+            <div className={`form-group row ${styles.linha}`}>
+              <label className={`col-sm-3 col-form-label ${styles.textRight}`}>Descrição</label>
+              <div className={styles.colSm9}>
                 <input
                   type="text"
                   name="descricao"
@@ -76,9 +76,9 @@ const ProdutoForm = () => {
                 />
               </div>
             </div>
-            <div className="form-group row linha">
-              <label className="col-sm-3 col-form-label text-right">Valor</label>
-              <div className="col-sm-9">
+            <div className={`form-group row ${styles.linha}`}>
+              <label className={`col-sm-3 col-form-label ${styles.textRight}`}>Valor</label>
+              <div className={styles.colSm9}>
                 <input
                   type="text"
                   name="valor"
@@ -88,10 +88,10 @@ const ProdutoForm = () => {
                 />
               </div>
             </div>
-            <div className="form-group row linha">
-              <div className="col-sm-9 offset-sm-3">
-                <button type="submit" className="btn btn-primary float-end">Salvar</button>
-                <Link to="/produtos" className="btn btn-primary btn-md float-end btn-spacing" title="Voltar">
+            <div className={`form-group row ${styles.linha}`}>
+              <div className={`${styles.colSm9} offset-sm-3`}>
+                <button type="submit" className={`btn btn-primary ${styles.floatEnd}`}>Salvar</button>
+                <Link to="/produtos" className={`btn btn-primary btn-md ${styles.floatEnd} ${styles.btnSpacing}`} title="Voltar">
                   <i className="fas fa-arrow-left"></i>
                 </Link>
               </div>

@@ -1,26 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import clienteService from './../../services/clienteService'; // Importe o clienteService
-import './../../styles/Clientes/ClienteDetails.css'; // Importe o arquivo CSS
+import clienteService from './../../services/clienteService';
+import styles from './css/ClienteDetails.module.css'; // Importe o módulo CSS
 
 const ClienteDetails = () => {
   const { id } = useParams();
   const [cliente, setCliente] = useState(null);
 
-//   useEffect(() => {
-//     // Simulando a busca de dados do cliente
-//     // Em uma aplicação real, você faria uma requisição a uma API para buscar os dados do cliente
-//     const fetchCliente = async () => {
-//       const response = await fetch(`/api/clientes/${id}`); // Substitua pela sua URL de API real
-//       const data = await response.json();
-//       setCliente(data);
-//     };
-    
-//     fetchCliente();
-//   }, [id]);
-
   useEffect(() => {
-    // Usando o clienteService para obter os dados do cliente
     const clienteId = parseInt(id);
     const clienteEncontrado = clienteService.getClienteById(clienteId);
     setCliente(clienteEncontrado);
@@ -31,30 +18,30 @@ const ClienteDetails = () => {
   }
 
   return (
-    <div className="cliente-details">
+    <div className={styles.clienteDetails}>
       <h4>Detalhes do Cliente</h4>
       <hr />
-      <dl className="row">
-        <dt className="col-sm-2">Nome</dt>
-        <dd className="col-sm-10">{cliente.nome}</dd>
+      <dl className={styles.row}>
+        <dt className={styles.colSm3}>Nome</dt>
+        <dd className={styles.colSm9}>{cliente.nome}</dd>
         
-        <dt className="col-sm-2">CPF</dt>
-        <dd className="col-sm-10">{cliente.cpf}</dd>
+        <dt className={styles.colSm3}>CPF</dt>
+        <dd className={styles.colSm9}>{cliente.cpf}</dd>
         
-        <dt className="col-sm-2">Endereço</dt>
-        <dd className="col-sm-10">{cliente.endereco}</dd>
+        <dt className={styles.colSm3}>Endereço</dt>
+        <dd className={styles.colSm9}>{cliente.endereco}</dd>
         
-        <dt className="col-sm-2">Telefone</dt>
-        <dd className="col-sm-10">{cliente.telefone}</dd>
+        <dt className={styles.colSm3}>Telefone</dt>
+        <dd className={styles.colSm9}>{cliente.telefone}</dd>
         
-        <dt className="col-sm-2">Data de Nascimento</dt>
-        <dd className="col-sm-10">{cliente.dataNasc}</dd>
+        <dt className={styles.colSm3}>Data de Nascimento</dt>
+        <dd className={styles.colSm9}>{cliente.dataNasc}</dd>
         
-        <dt className="col-sm-2">Email</dt>
-        <dd className="col-sm-10">{cliente.email}</dd>
+        <dt className={styles.colSm3}>Email</dt>
+        <dd className={styles.colSm9}>{cliente.email}</dd>
       </dl>
       <div>
-        <Link to={`/clientes/${cliente.id}/editar`} className="btn btn-warning btn-md btn-spacing" title="Alterar">
+        <Link to={`/clientes/${cliente.id}/editar`} className={`btn btn-warning btn-md ${styles.btnSpacing}`} title="Alterar">
             <i className="fas fa-edit"></i>
         </Link>
         

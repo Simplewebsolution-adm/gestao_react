@@ -47,6 +47,10 @@ body {
   margin-top: 70px; /* Para garantir que o conteúdo não fique sob o header */
 }
 
+.btn-spacing {
+  margin-right: 5px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

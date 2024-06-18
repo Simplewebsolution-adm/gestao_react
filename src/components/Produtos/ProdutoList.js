@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { formatCurrency } from './../../utils/formatCurrency'; 
 import produtoService from '../../services/produtoService'; 
 
 const ProdutoList = () => {
-  const produtos = produtoService.getListaProdutos(); 
+  const [produtos, setProdutos] = useState([]);
+
+  useEffect(() => {
+    setProdutos(produtoService.getListaProdutos());
+  }, []);
+
+  const handleDelete = (id) => {
+    produtoService.deletarProduto(id);
+    setProdutos(produtos.filter(produto => produto.id !== id));
+  };
 
   return (
     <div>
@@ -34,7 +43,7 @@ const ProdutoList = () => {
                 <Link to={`/produtos/details/${produto.id}`} className="btn btn-primary btn-sm btn-spacing" title="Detalhes">
                   <i className="fas fa-eye"></i>
                 </Link>
-                <button className="btn btn-danger btn-sm" title="Excluir" onClick={() => produtoService.deleteProduto(produto.id)}>
+                <button className="btn btn-danger btn-sm" title="Excluir" onClick={() => handleDelete(produto.id)}>
                   <i className="fas fa-trash-alt"></i>
                 </button>
               </td>

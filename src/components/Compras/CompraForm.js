@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { formatCurrency } from './../../utils/formatCurrency';
 import compraService from './../../services/compraService';
-import './../../styles/Compras/CompraForm.css';
+import styles from './css/CompraForm.module.css'; // Importe o módulo CSS
 
 const CompraForm = () => {
   const { id } = useParams();
@@ -72,14 +72,14 @@ const CompraForm = () => {
   };
 
   return (
-    <div>
+    <div className={styles.compraForm}>
       <h4>{id ? 'Alterar Compra' : 'Nova Compra'}</h4>
-      <div className="row">
+      <div className={styles.row}>
         <div className="col-md-10">
           <form onSubmit={handleSubmit} className="my-14">
-            <div className="form-group row linha">
-              <label className="col-sm-3 col-form-label text-right">Fornecedor</label>
-              <div className="col-sm-9">
+            <div className={`form-group ${styles.row} ${styles.linha}`}>
+              <label className={`${styles.colSm3} col-form-label ${styles.textRight}`}>Fornecedor</label>
+              <div className={styles.colSm9}>
                 <input
                   type="text"
                   name="fornecedor"
@@ -90,9 +90,9 @@ const CompraForm = () => {
                 />
               </div>
             </div>
-            <div className="form-group row linha">
-              <label className="col-sm-3 col-form-label text-right">Produto</label>
-              <div className="col-sm-9">
+            <div className={`form-group ${styles.row} ${styles.linha}`}>
+              <label className={`${styles.colSm3} col-form-label ${styles.textRight}`}>Produto</label>
+              <div className={styles.colSm9}>
                 <input
                   type="text"
                   name="produto"
@@ -103,9 +103,9 @@ const CompraForm = () => {
                 />
               </div>
             </div>
-            <div className="form-group row linha">
-              <label className="col-sm-3 col-form-label text-right">Data da Compra</label>
-              <div className="col-sm-9">
+            <div className={`form-group ${styles.row} ${styles.linha}`}>
+              <label className={`${styles.colSm3} col-form-label ${styles.textRight}`}>Data da Compra</label>
+              <div className={styles.colSm9}>
                 <input
                   type="date"
                   name="dataCompra"
@@ -116,9 +116,9 @@ const CompraForm = () => {
                 />
               </div>
             </div>
-            <div className="form-group row linha">
-              <label className="col-sm-3 col-form-label text-right">Forma de Pagamento</label>
-              <div className="col-sm-9">
+            <div className={`form-group ${styles.row} ${styles.linha}`}>
+              <label className={`${styles.colSm3} col-form-label ${styles.textRight}`}>Forma de Pagamento</label>
+              <div className={styles.colSm9}>
                 <select
                   name="formaPagamento"
                   value={compra.formaPagamento}
@@ -132,9 +132,9 @@ const CompraForm = () => {
                 </select>
               </div>
             </div>
-            <div className="form-group row linha">
-              <label className="col-sm-3 col-form-label text-right">Valor Unitário</label>
-              <div className="col-sm-9">
+            <div className={`form-group ${styles.row} ${styles.linha}`}>
+              <label className={`${styles.colSm3} col-form-label ${styles.textRight}`}>Valor Unitário</label>
+              <div className={styles.colSm9}>
                 <input
                   type="text"
                   name="valorUnitario"
@@ -145,9 +145,9 @@ const CompraForm = () => {
                 />
               </div>
             </div>
-            <div className="form-group row linha">
-              <label className="col-sm-3 col-form-label text-right">Quantidade</label>
-              <div className="col-sm-9">
+            <div className={`form-group ${styles.row} ${styles.linha}`}>
+              <label className={`${styles.colSm3} col-form-label ${styles.textRight}`}>Quantidade</label>
+              <div className={styles.colSm9}>
                 <input
                   type="number"
                   name="quantidade"
@@ -159,9 +159,9 @@ const CompraForm = () => {
                 />
               </div>
             </div>
-            <div className="form-group row linha">
-              <label className="col-sm-3 col-form-label text-right">Valor da Compra</label>
-              <div className="col-sm-9">
+            <div className={`form-group ${styles.row} ${styles.linha}`}>
+              <label className={`${styles.colSm3} col-form-label ${styles.textRight}`}>Valor da Compra</label>
+              <div className={styles.colSm9}>
                 <input
                   type="text"
                   name="valorCompra"
@@ -171,10 +171,10 @@ const CompraForm = () => {
                 />
               </div>
             </div>
-            <div className="form-group row linha">
+            <div className={`form-group row linha ${styles.formGroup}`}>
               <div className="col-sm-9 offset-sm-3">
                 <button type="submit" className="btn btn-primary float-end">Salvar</button>
-                <Link to="/compras" className="btn btn-primary btn-md float-end btn-spacing" title="Voltar">
+                <Link to="/clientes" className="btn btn-primary btn-md float-end btn-spacing" title="Voltar">
                   <i className="fas fa-arrow-left"></i>
                 </Link>
               </div>

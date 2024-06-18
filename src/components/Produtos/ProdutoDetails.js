@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { formatCurrency } from './../../utils/formatCurrency'; 
 import produtoService from './../../services/produtoService'; 
-import './../../styles/Produtos/ProdutoDetails.css'; 
+import styles from './css/ProdutoDetails.module.css'; // Importe o módulo CSS
 
 const ProdutoDetails = () => {
   const { id } = useParams();
@@ -20,18 +20,18 @@ const ProdutoDetails = () => {
   }
 
   return (
-    <div className="produto-details">
+    <div className={styles.produtoDetails}>
       <h4>Detalhes do Produto</h4>
       <hr />
-      <dl className="row">
-        <dt className="col-sm-2">Descrição</dt>
-        <dd className="col-sm-10">{produto.descricao}</dd>
+      <dl className={styles.row}>
+        <dt className={styles.colSm2}>Descrição</dt>
+        <dd className={styles.colSm10}>{produto.descricao}</dd>
         
-        <dt className="col-sm-2">Valor</dt>
-        <dd className="col-sm-10">{formatCurrency(produto.valor)}</dd>
+        <dt className={styles.colSm2}>Valor</dt>
+        <dd className={styles.colSm10}>{formatCurrency(produto.valor)}</dd>
       </dl>
       <div>
-        <Link to={`/produtos/${produto.id}/editar`} className="btn btn-warning btn-md btn-spacing" title="Alterar">
+        <Link to={`/produtos/${produto.id}/editar`} className={`btn btn-warning btn-md ${styles.btnSpacing}`} title="Alterar">
             <i className="fas fa-edit"></i>
         </Link>
         
