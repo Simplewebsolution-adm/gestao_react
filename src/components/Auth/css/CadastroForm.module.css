@@ -93,6 +93,7 @@
 .formGroup.passwordToggle {
   display: flex;
   align-items: center;
+  margin-bottom: 0px;
 }
 
 .passwordToggle .inputMostraSenha {
