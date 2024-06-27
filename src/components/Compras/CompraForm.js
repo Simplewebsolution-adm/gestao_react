@@ -174,7 +174,7 @@ const CompraForm = () => {
             <div className={`form-group row linha ${styles.formGroup}`}>
               <div className="col-sm-9 offset-sm-3">
                 <button type="submit" className="btn btn-primary float-end">Salvar</button>
-                <Link to="/clientes" className="btn btn-primary btn-md float-end btn-spacing" title="Voltar">
+                <Link to="/compras" className="btn btn-primary btn-md float-end btn-spacing" title="Voltar">
                   <i className="fas fa-arrow-left"></i>
                 </Link>
               </div>

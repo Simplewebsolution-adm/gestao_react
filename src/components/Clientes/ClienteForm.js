@@ -125,7 +125,7 @@ const ClienteForm = () => {
             <div className={`form-group ${styles.row} ${styles.linha}`}>
               <div className={`${styles.colSm9} offset-sm-3`}>
                 <button type="submit" className={`btn btn-primary ${styles.floatEnd}`}>Salvar</button>
-                <Link to="/produtos" className={`btn btn-primary btn-md ${styles.floatEnd} ${styles.btnSpacing}`} title="Voltar">
+                <Link to="/clientes" className={`btn btn-primary btn-md ${styles.floatEnd} ${styles.btnSpacing}`} title="Voltar">
                   <i className="fas fa-arrow-left"></i>
                 </Link>
               </div>
